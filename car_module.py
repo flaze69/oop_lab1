@@ -1,5 +1,6 @@
 class Car:
-    def __init__(self, engine_power, downforce, tire_wear, driver=None):
+    def __init__(self, team, engine_power, downforce, tire_wear, driver=None):
+        self.team = team
         self.engine_power = engine_power
         self.downforce = downforce
         self.tire_wear = tire_wear
@@ -10,8 +11,8 @@ class Car:
 
 
 class SportsCar(Car):
-    def __init__(self, engine_power, downforce, tire_wear, turbo_boost_capacity, turbo_boost, driver=None):
-        super().__init__(engine_power, downforce, tire_wear, driver)
+    def __init__(self, team, engine_power, downforce, tire_wear, turbo_boost_capacity, turbo_boost, driver=None):
+        super().__init__(team, engine_power, downforce, tire_wear, driver)
         self.turbo_boost_capacity = turbo_boost_capacity
         self.turbo_boost = turbo_boost
 
@@ -20,8 +21,8 @@ class SportsCar(Car):
 
 
 class SUVCar(Car):
-    def __init__(self, engine_power, downforce, tire_wear, ground_clearance, off_road_mode, driver=None):
-        super().__init__(engine_power, downforce, tire_wear, driver)
+    def __init__(self, team, engine_power, downforce, tire_wear, ground_clearance, off_road_mode, driver=None):
+        super().__init__(team, engine_power, downforce, tire_wear, driver)
         self.ground_clearance = ground_clearance
         self.off_road_mode = off_road_mode
 
@@ -30,8 +31,8 @@ class SUVCar(Car):
 
 
 class ElectricCar(Car):
-    def __init__(self, engine_power, downforce, tire_wear, battery_capacity, charging_speed, driver=None):
-        super().__init__(engine_power, downforce, tire_wear, driver)
+    def __init__(self, team, engine_power, downforce, tire_wear, battery_capacity, charging_speed, driver=None):
+        super().__init__(team, engine_power, downforce, tire_wear, driver)
         self.battery_capacity = battery_capacity
         self.charging_speed = charging_speed
 

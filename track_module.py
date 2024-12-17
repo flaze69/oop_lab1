@@ -1,12 +1,14 @@
 class Track:
     def __init__(self, segments):
         self.segments = segments
+        self.length = sum(segment.length for segment in segments)
+        self.total_turns = sum(1 for segment in segments if segment.segment_type in ["fast_turn", "slow_turn"])
         self.road_map = RoadMap(segments)
 
     def calculate_segment_speed(self, car, segment, driver):
         segment_modifier = segment.get_speed_modifier()
         driver_modifier = 1.0 - driver.error_chance
-        speed = (car.engine_power * 0.2 * car.downforce * car.tire_wear * 
+        speed = (car.engine_power * 0.05 * car.downforce * car.tire_wear * 
                  segment_modifier * driver_modifier * driver.aggression)
         return speed
 
